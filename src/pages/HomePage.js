@@ -30,6 +30,7 @@ const HomePage = () => {
   return (
     <div>
       {error !== null && <Toaster position="top-right" />}
+      <h1>Trending Movies</h1>
       <TrendingMoviesList movies={movies} />
       {loading && <Loader />}
     </div>

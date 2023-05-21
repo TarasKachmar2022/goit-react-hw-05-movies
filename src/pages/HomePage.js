@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import { fetchTrending } from 'components/ApiService/ApiService';
-import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
 import Loader from 'components/Loader/Loader';
+import APIs from 'components/ApiService/ApiService';
+import TrendingMoviesList from 'components/TrendingMoviesList/TrendingMoviesList';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -10,29 +10,34 @@ const HomePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const GetTrending = async () => {
+    const FetchTrending = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const response = await fetchTrending();
-
-        if (response.length === 0) {
-          throw new Error();
-        }
-        setMovies(prevState => [...prevState, ...response]);
+        const data = await APIs.getTrending();
+        console.log(data);
+        setMovies(prevState => [...prevState, ...data.results]);
       } catch (error) {
-        setError(toast.error('Щось пішло не так... Спробуйте ще раз!'));
+        setError('Щось пішло не так... Спробуйте ще раз!');
       } finally {
         setLoading(false);
       }
     };
-    GetTrending();
+    FetchTrending();
   }, []);
+
+  useEffect(() => {
+    if (!error) return;
+
+    toast.error(error);
+  }, [error]);
+
   return (
     <div>
-      {error !== null && <Toaster position="top-right" />}
       <h1>Trending Movies</h1>
       <TrendingMoviesList movies={movies} />
       {loading && <Loader />}
+      <Toaster position="top-right" />
     </div>
   );
 };

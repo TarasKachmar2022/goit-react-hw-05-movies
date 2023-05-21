@@ -3,12 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 const TrendingMovieCard = ({ movie }) => {
   const location = useLocation();
   const { id, title } = movie;
+
   return (
-    <Link to={`${movie}/${id}`} state={{ from: location }}>
-      <li>
+    <li>
+      <Link to={`${movie}/${id}`} state={{ from: location }}>
         <p>{title}</p>
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 };
 

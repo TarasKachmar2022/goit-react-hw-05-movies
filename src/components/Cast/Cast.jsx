@@ -1,24 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import APIs from 'components/ApiService/ApiService';
-import MoviesList from 'components/MoviesList/MoviesList';
+import Loader from 'components/Loader/Loader';
+import CastList from 'components/CastList/CastList';
 
-const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+const Cast = () => {
+  const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { movieId } = useParams();
 
   useEffect(() => {
+    if (!movieId) return;
     const controller = new AbortController();
-    const FetchTrending = async () => {
+    const FetchMovieCredits = async () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await APIs.getTrending({ signal: controller.signal });
+        const { data } = await APIs.getMovieCredits({
+          movieId: movieId,
+          signal: controller.signal,
+        });
         console.log(data);
-        setMovies(prevState => [...prevState, ...data.results]);
+        setActors(data);
       } catch (error) {
         if (axios.isCancel(error)) return;
         setError(error.message);
@@ -27,25 +33,26 @@ const HomePage = () => {
         setLoading(false);
       }
     };
-    FetchTrending();
+    FetchMovieCredits();
+    // console.log(movie);
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [movieId]);
 
   useEffect(() => {
     if (!error) return;
+
     toast.error(error);
   }, [error]);
 
   return (
-    <div>
-      <h1>Trending Movies</h1>
-      <MoviesList movies={movies} />
+    <>
+      <CastList actors={actors} />
       {loading && <Loader />}
       <Toaster position="top-right" />
-    </div>
+    </>
   );
 };
 
-export default HomePage;
+export default Cast;

@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import APIs from 'components/ApiService/ApiService';
 import Searchbar from 'components/Searchbar/Searchbar';
 import LoadMoreBtn from 'components/LoadMore/LoadMore';
+import MovieList from 'components/MoviesList/MoviesList';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -12,6 +13,7 @@ const MoviesPage = () => {
   const [error, setError] = useState(null);
   const [searchName, setSearchName] = useState('');
   const [page, setPage] = useState(1);
+  const [pageQuantity, setPageQuantity] = useState(0);
 
   useEffect(() => {
     const FetchSearchMovie = async () => {
@@ -22,6 +24,7 @@ const MoviesPage = () => {
         const data = await APIs.getSearchMovie(searchName, page);
         console.log(data);
         setMovies(prevState => [...prevState, ...data.results]);
+        setPageQuantity(data.total_pages);
       } catch (error) {
         if (axios.isCancel(error)) return;
         setError('Щось пішло не так... Спробуйте ще раз!');
@@ -51,7 +54,8 @@ const MoviesPage = () => {
   return (
     <div>
       <Searchbar onSubmit={formHandlerSubmit} />
-      <LoadMoreBtn addPage={onChangePageNumber} />
+      <MovieList movies={movies} />
+      {page < pageQuantity && <LoadMoreBtn addPage={onChangePageNumber} />}
       {loading && <Loader />}
       <Toaster position="top-right" />
     </div>

@@ -1,8 +1,12 @@
 const routes = {
   HOME: '/',
-  MOVIES: 'movies',
-  //   MOVIES_ID: 'movies/:id',
-  //   STATIC_MOVIE_ID: 'movies/' + id,
+  MOVIES: '/movies',
+  MOVIES_DETAILS: '/movies/:movieId',
+  STATIC_MOVIE_ID: id => '/movies/' + id,
+  MOVIES_CAST: 'cast',
+  // MOVIES_CAST: '/movies/:movieId/cast',
+  // MOVIES_REVIEWS: '/movies/:movieId/reviews',
+  MOVIES_REVIEWS: 'reviews',
 };
 
 export default routes;

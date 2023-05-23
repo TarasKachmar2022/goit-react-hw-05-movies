@@ -1,24 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import APIs from 'components/ApiService/ApiService';
-import MoviesList from 'components/MoviesList/MoviesList';
+import Loader from 'components/Loader/Loader';
+import ReviewsList from 'components/ReviewsList/ReviewsList';
 
-const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+const Reviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { movieId } = useParams();
 
   useEffect(() => {
+    if (!movieId) return;
     const controller = new AbortController();
-    const FetchTrending = async () => {
+    const FetchMovieCredits = async () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await APIs.getTrending({ signal: controller.signal });
+        const { data } = await APIs.getMovieReviews({
+          movieId: movieId,
+          signal: controller.signal,
+        });
         console.log(data);
-        setMovies(prevState => [...prevState, ...data.results]);
+        setReviews(data);
       } catch (error) {
         if (axios.isCancel(error)) return;
         setError(error.message);
@@ -27,25 +33,26 @@ const HomePage = () => {
         setLoading(false);
       }
     };
-    FetchTrending();
+    FetchMovieCredits();
+    // console.log(movie);
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [movieId]);
 
   useEffect(() => {
     if (!error) return;
+
     toast.error(error);
   }, [error]);
 
   return (
-    <div>
-      <h1>Trending Movies</h1>
-      <MoviesList movies={movies} />
+    <>
+      <ReviewsList reviews={reviews} />
       {loading && <Loader />}
       <Toaster position="top-right" />
-    </div>
+    </>
   );
 };
 
-export default HomePage;
+export default Reviews;

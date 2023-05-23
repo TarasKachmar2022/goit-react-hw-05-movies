@@ -1,4 +1,4 @@
-import ReviewsCard from 'components/ReviewsCard/ReviewsCard';
+import ReviewsCard from 'components/ReviewCard/ReviewsCard';
 
 const ReviewsList = ({ reviews }) => {
   const review = reviews.results;
@@ -15,7 +15,7 @@ const ReviewsList = ({ reviews }) => {
           </ul>
         </>
       ) : (
-        <p>We don't have cast for this movie </p>
+        <p>We don't have reviews for this movie </p>
       )}
     </>
   );

@@ -1,19 +1,22 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useParams, Outlet } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation, useParams, Outlet, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import APIs from 'components/ApiService/ApiService';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import AddInfo from 'components/AddInfo/AddInfo';
+import routes from 'routes';
 
 const MoviesDetailsPage = () => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { movieId } = useParams();
 
+  const { movieId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
+  const backBtnLink = useRef(location.state?.from ?? routes.MOVIES);
 
   useEffect(() => {
     if (!movieId) return;
@@ -49,10 +52,16 @@ const MoviesDetailsPage = () => {
     toast.error(error);
   }, [error]);
 
+  const HandleGoBack = () => navigate(backBtnLink.current);
+
   return (
     <div>
-      <MovieDetails movie={movie} />
-      <AddInfo />
+      <button type="button" onClick={HandleGoBack}>
+        Go Back
+      </button>
+      <hr />
+      {movie && <MovieDetails movie={movie} />}
+      {movie && <AddInfo />}
       <hr />
       <Outlet />
       {loading && <Loader />}

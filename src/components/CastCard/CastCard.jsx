@@ -1,7 +1,6 @@
 const CastCard = ({ actor }) => {
   const { profile_path, name, character } = actor;
   //   const location = useLocation();
-  console.log(actor);
   return (
     <li>
       <img src={{ profile_path }} alt={name} />

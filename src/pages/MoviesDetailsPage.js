@@ -9,7 +9,7 @@ import AddInfo from 'components/AddInfo/AddInfo';
 import routes from 'routes';
 
 const MoviesDetailsPage = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 

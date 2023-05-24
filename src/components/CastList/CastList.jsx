@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import CastCard from 'components/CastCard/CastCard';
 
 const CastList = ({ actors }) => {
@@ -19,6 +20,15 @@ const CastList = ({ actors }) => {
       )}
     </>
   );
+};
+
+CastList.propTypes = {
+  actors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      actor: PropTypes.object,
+    }).isRequired
+  ),
 };
 
 export default CastList;

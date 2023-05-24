@@ -7,7 +7,7 @@ import Loader from 'components/Loader/Loader';
 import ReviewsList from 'components/ReviewsList/ReviewsList';
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();

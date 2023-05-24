@@ -6,7 +6,7 @@ const MovieDetails = ({ movie }) => {
     title,
     popularity,
     genre_ids,
-    // genres,
+    genres,
   } = movie;
   console.log(movie);
   return (

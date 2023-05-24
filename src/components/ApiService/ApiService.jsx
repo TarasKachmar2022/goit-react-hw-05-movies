@@ -1,4 +1,5 @@
 import axios from 'axios';
+import filteredAPIs from 'utils/dataFiltered';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 const API_KEY = '4efc7dd075300afeff5dc61a2436592d';
@@ -12,7 +13,8 @@ const getTrending = async ({ signal }) => {
     throw new Error();
   }
 
-  return data;
+  const dataFilter = filteredAPIs.dataFilter(data);
+  return dataFilter;
 };
 
 const getSearchMovie = async (searchName, page) => {
@@ -24,7 +26,8 @@ const getSearchMovie = async (searchName, page) => {
     throw new Error();
   }
 
-  return data;
+  const dataFilter = filteredAPIs.dataFilter(data);
+  return dataFilter;
 };
 
 const getMovieDetails = async ({ movieId, signal }) => {

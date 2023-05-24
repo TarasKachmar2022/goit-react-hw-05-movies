@@ -1,4 +1,4 @@
-export const genreTable = [
+const genreTable = [
   {
     id: 28,
     name: 'Action',
@@ -76,3 +76,5 @@ export const genreTable = [
     name: 'Western',
   },
 ];
+
+export default genreTable;

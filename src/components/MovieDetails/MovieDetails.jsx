@@ -1,12 +1,15 @@
 const MovieDetails = ({ movie }) => {
   const {
+    budget,
     poster_path,
     overview,
     release_date,
     title,
     popularity,
-    genre_ids,
     genres,
+    original_title,
+    vote_average,
+    vote_count,
   } = movie;
   console.log(movie);
   return (
@@ -15,15 +18,18 @@ const MovieDetails = ({ movie }) => {
         <img src={`${poster_path}`} alt={title} />
       </div>
       <div>
-        <h1>
-          {title}
-          {release_date}
-        </h1>
-        <p>User Score: {popularity}</p>
-        <h2>Overview</h2>
+        <h1>{title}</h1>
+        <h3>
+          Vote / Votes {vote_average} / {vote_count}
+        </h3>
+        <p>Release year {release_date}</p>
+        <p>Original title {original_title}</p>
+        <p>User Score {popularity}</p>
+        <p>Budget ${budget}</p>
+        <h2>ABOUT</h2>
         <p>{overview}</p>
         <h3>Genres</h3>
-        <p>{genre_ids}</p>
+        <p>{genres}</p>
       </div>
       <hr />
     </>

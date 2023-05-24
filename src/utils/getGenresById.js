@@ -1,6 +1,6 @@
 import genreTable from './genreTable';
 
-function getGenres(data) {
+function getGenresById(data) {
   return data
     .map(element => {
       return genreTable.find(el => el.id === element);
@@ -9,4 +9,4 @@ function getGenres(data) {
     .join(', ');
 }
 
-export default getGenres;
+export default getGenresById;

@@ -19,7 +19,7 @@ const Cast = () => {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await APIs.getMovieCredits({
+        const data = await APIs.getMovieCredits({
           movieId: movieId,
           signal: controller.signal,
         });

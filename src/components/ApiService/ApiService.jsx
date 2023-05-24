@@ -31,7 +31,7 @@ const getSearchMovie = async (searchName, page) => {
 };
 
 const getMovieDetails = async ({ movieId, signal }) => {
-  const data = await axios.get(
+  const { data } = await axios.get(
     `movie/${movieId}?api_key=${API_KEY}&language=en-US`,
     { signal: signal }
   );
@@ -40,20 +40,23 @@ const getMovieDetails = async ({ movieId, signal }) => {
     throw new Error();
   }
 
-  return data;
+  const dataFilter = filteredAPIs.dataDetailsFilter(data);
+  return dataFilter;
 };
 
 const getMovieCredits = async ({ movieId, signal }) => {
-  const data = await axios.get(
+  const { data } = await axios.get(
     `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
     { signal: signal }
   );
-
+  console.log(data);
   if (data.length === 0) {
     throw new Error();
   }
 
-  return data;
+  const dataFilter = filteredAPIs.dataCastFilter(data);
+  console.log(dataFilter);
+  return dataFilter;
 };
 
 const getMovieReviews = async ({ movieId, signal }) => {

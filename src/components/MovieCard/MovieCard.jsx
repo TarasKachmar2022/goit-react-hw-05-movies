@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
         <img src={poster_path} alt={title} />
         <h2>{title}</h2>
         <p>
-          {genre_ids} {release_date} {vote_average}
+          {genre_ids} {release_date} | {vote_average}
         </p>
       </Link>
     </li>

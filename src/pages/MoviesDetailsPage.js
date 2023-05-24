@@ -25,7 +25,7 @@ const MoviesDetailsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const { data } = await APIs.getMovieDetails({
+        const data = await APIs.getMovieDetails({
           movieId: movieId,
           signal: controller.signal,
         });

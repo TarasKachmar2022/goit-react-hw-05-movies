@@ -1,7 +1,7 @@
 import CastCard from 'components/CastCard/CastCard';
 
 const CastList = ({ actors }) => {
-  const { cast } = actors;
+  const cast = actors;
   if (!cast) return;
 
   console.log(cast);

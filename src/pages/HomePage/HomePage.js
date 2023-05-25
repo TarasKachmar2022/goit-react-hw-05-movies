@@ -18,7 +18,6 @@ const HomePage = () => {
       setError(null);
       try {
         const data = await APIs.getTrending({ signal: controller.signal });
-        console.log(data);
         setMovies(prevState => [...prevState, ...data.results]);
       } catch (error) {
         if (axios.isCancel(error)) return;

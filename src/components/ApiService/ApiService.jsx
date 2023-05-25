@@ -49,13 +49,12 @@ const getMovieCredits = async ({ movieId, signal }) => {
     `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
     { signal: signal }
   );
-  console.log(data);
+
   if (data.length === 0) {
     throw new Error();
   }
 
   const dataFilter = filteredAPIs.dataCastFilter(data);
-  console.log(dataFilter);
   return dataFilter;
 };
 

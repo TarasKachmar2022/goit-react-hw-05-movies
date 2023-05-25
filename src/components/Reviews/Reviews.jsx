@@ -23,7 +23,6 @@ const Reviews = () => {
           movieId: movieId,
           signal: controller.signal,
         });
-        console.log(data);
         setReviews(data);
       } catch (error) {
         if (axios.isCancel(error)) return;
@@ -34,7 +33,6 @@ const Reviews = () => {
       }
     };
     FetchMovieCredits();
-    // console.log(movie);
     return () => {
       controller.abort();
     };

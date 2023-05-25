@@ -30,7 +30,6 @@ const MoviesDetailsPage = () => {
           movieId: movieId,
           signal: controller.signal,
         });
-        console.log(data);
         setMovie(data);
       } catch (error) {
         if (axios.isCancel(error)) return;
@@ -41,7 +40,6 @@ const MoviesDetailsPage = () => {
       }
     };
     FetchSearchMovie();
-    // console.log(movie);
     return () => {
       controller.abort();
     };

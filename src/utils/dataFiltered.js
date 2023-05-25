@@ -8,7 +8,6 @@ import getProfilePath from './getProfilePath';
 
 const dataFilter = data => {
   const dataFiltered = data.results.map(result => {
-    console.log(result.genre_ids);
     return {
       adult: result.adult,
       genre_ids: getGenresById(result.genre_ids),

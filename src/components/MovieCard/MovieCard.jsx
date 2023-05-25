@@ -16,7 +16,6 @@ const MovieCard = ({ movie }) => {
   const { id, title, genre_ids, poster_path, release_date, vote_average } =
     movie;
   const location = useLocation();
-  console.log(movie);
   return (
     <MovieCardContainer>
       <MovieCardItem>

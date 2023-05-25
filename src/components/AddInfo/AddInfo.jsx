@@ -7,8 +7,6 @@ import {
 } from './AddInfo.styled';
 
 const AddInfo = () => {
-  // const location = useLocation();
-
   return (
     <>
       <AddInfoTitle>Additional information</AddInfoTitle>

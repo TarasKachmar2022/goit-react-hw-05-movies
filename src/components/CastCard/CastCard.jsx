@@ -3,8 +3,6 @@ import { CastCardImg, CastCardItem, CastCardTitle } from './CastCard.styled';
 
 const CastCard = ({ actor }) => {
   const { profile_path, name, character } = actor;
-  //   const location = useLocation();
-  // console.log(actor);
   return (
     <CastCardItem>
       <CastCardImg src={profile_path} alt={name} />

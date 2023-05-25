@@ -22,7 +22,6 @@ const MovieDetails = ({ movie }) => {
     vote_average,
     vote_count,
   } = movie;
-  console.log(original_title);
 
   return (
     <>

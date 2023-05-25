@@ -22,7 +22,6 @@ const MoviesPage = () => {
       setError(null);
       try {
         const data = await APIs.getSearchMovie(searchName, page);
-        console.log(data);
         setMovies(prevState => [...prevState, ...data.results]);
         setPageQuantity(data.total_pages);
       } catch (error) {

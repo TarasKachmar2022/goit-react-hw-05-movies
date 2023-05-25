@@ -6,7 +6,6 @@ const CastList = ({ actors }) => {
   const cast = actors;
   if (!cast) return;
 
-  console.log(cast);
   return (
     <>
       {cast.length > 0 ? (

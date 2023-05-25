@@ -23,7 +23,6 @@ const Cast = () => {
           movieId: movieId,
           signal: controller.signal,
         });
-        console.log(data);
         setActors(data);
       } catch (error) {
         if (axios.isCancel(error)) return;
@@ -34,7 +33,6 @@ const Cast = () => {
       }
     };
     FetchMovieCredits();
-    // console.log(movie);
     return () => {
       controller.abort();
     };

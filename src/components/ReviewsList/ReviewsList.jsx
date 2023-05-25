@@ -5,7 +5,6 @@ const ReviewsList = ({ reviews }) => {
   const review = reviews.results;
   if (!review) return;
 
-  console.log(review);
   return (
     <>
       {review.length > 0 ? (

@@ -1,11 +1,12 @@
 import { createPortal } from 'react-dom';
 import { Vortex } from 'react-loader-spinner';
+import { LoaderWrap } from './Loader.styled';
 
 const rootloader = document.querySelector('#rootLoader');
 
 const Loader = () => {
   return createPortal(
-    <div>
+    <LoaderWrap>
       <Vortex
         type="watch"
         visible={true}
@@ -15,7 +16,7 @@ const Loader = () => {
         wrapperStyle={{}}
         colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
       />
-    </div>,
+    </LoaderWrap>,
     rootloader
   );
 };

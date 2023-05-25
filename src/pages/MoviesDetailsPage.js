@@ -7,6 +7,7 @@ import APIs from 'components/ApiService/ApiService';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import AddInfo from 'components/AddInfo/AddInfo';
 import routes from 'routes';
+import GoBackBtn from 'components/GoBackBtn/GoBackBtn';
 
 const MoviesDetailsPage = () => {
   const [movie, setMovie] = useState();
@@ -56,9 +57,7 @@ const MoviesDetailsPage = () => {
 
   return (
     <div>
-      <button type="button" onClick={HandleGoBack}>
-        Go Back
-      </button>
+      <GoBackBtn HandleGoBack={HandleGoBack} />
       <hr />
       {movie && <MovieDetails movie={movie} />}
       {movie && <AddInfo />}

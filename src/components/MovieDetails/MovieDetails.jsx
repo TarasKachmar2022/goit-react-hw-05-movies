@@ -1,4 +1,13 @@
 import PropTypes from 'prop-types';
+import {
+  MovieDetailsContainer,
+  MovieDetailsInfoContainer,
+  MovieDetailsImg,
+  MovieDetailsOverwiev,
+  MovieDetailsAbout,
+  MovieDetailsGenresTitle,
+  MovieDetailsGenres,
+} from './MovieDetails.styled';
 
 const MovieDetails = ({ movie }) => {
   const {
@@ -17,23 +26,24 @@ const MovieDetails = ({ movie }) => {
 
   return (
     <>
-      <div>
-        <img src={`${poster_path}`} alt={title} />
-      </div>
-      <div>
-        <h2>{title}</h2>
-        <h4>
-          Vote / Votes: {vote_average} / {vote_count}
-        </h4>
-        <p>Release year: {release_date}</p>
-        <p>Original title: {original_title}</p>
-        <p>User Score: {popularity}</p>
-        <p>Budget: ${budget}</p>
-        <h2>ABOUT</h2>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <p>{genres}</p>
-      </div>
+      <MovieDetailsContainer>
+        <MovieDetailsImg src={`${poster_path}`} alt={title} />
+
+        <MovieDetailsInfoContainer>
+          <h2>{title}</h2>
+          <h4>
+            Vote / Votes: {vote_average} / {vote_count}
+          </h4>
+          <p>Release year: {release_date}</p>
+          <p>Original title: {original_title}</p>
+          <p>User Score: {popularity}</p>
+          <p>Budget: ${budget}</p>
+          <MovieDetailsAbout>ABOUT</MovieDetailsAbout>
+          <MovieDetailsOverwiev>{overview}</MovieDetailsOverwiev>
+          <MovieDetailsGenresTitle>Genres</MovieDetailsGenresTitle>
+          <MovieDetailsGenres>{genres}</MovieDetailsGenres>
+        </MovieDetailsInfoContainer>
+      </MovieDetailsContainer>
       <hr />
     </>
   );

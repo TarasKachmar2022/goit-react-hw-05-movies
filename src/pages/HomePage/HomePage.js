@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import APIs from 'components/ApiService/ApiService';
 import MoviesList from 'components/MoviesList/MoviesList';
+import { TrendingTitle } from './HomePage.styled';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -40,7 +41,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Trending Movies</h1>
+      <TrendingTitle>Trending Movies</TrendingTitle>
       <MoviesList movies={movies} />
       {loading && <Loader />}
       <Toaster position="top-right" />

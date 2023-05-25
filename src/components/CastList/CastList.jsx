@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import CastCard from 'components/CastCard/CastCard';
+import { CastUl } from './CastList.styled';
 
 const CastList = ({ actors }) => {
   const cast = actors;
@@ -10,10 +11,10 @@ const CastList = ({ actors }) => {
     <>
       {cast.length > 0 ? (
         <>
-          <ul>
+          <CastUl>
             {cast &&
               cast.map(actor => <CastCard key={actor.id} actor={actor} />)}
-          </ul>
+          </CastUl>
         </>
       ) : (
         <p>We don't have cast for this movie </p>

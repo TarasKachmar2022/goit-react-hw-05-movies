@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { Container, LoadMoreStyled } from './LoadMore.styled';
 
 const LoadMoreBtn = ({ addPage }) => {
   return (
-    <div>
-      <button type="button" onClick={addPage}>
+    <Container>
+      <LoadMoreStyled type="button" onClick={addPage}>
         Load More
-      </button>
-    </div>
+      </LoadMoreStyled>
+    </Container>
   );
 };
 

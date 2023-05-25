@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom';
 import routes from 'routes';
+import { SiteNavList, SiteNavItem, NavigationLink } from './SiteNav.styled';
 
 const SiteNav = () => {
   return (
-    <ul>
-      <li>
-        <NavLink to={`${routes.HOME}`}>Home</NavLink>
-      </li>
-      <li>
-        <NavLink to={`${routes.MOVIES}`}>Movies</NavLink>
-      </li>
-    </ul>
+    <SiteNavList>
+      <SiteNavItem>
+        <NavigationLink to={`${routes.HOME}`}>Home</NavigationLink>
+      </SiteNavItem>
+      <SiteNavItem>
+        <NavigationLink to={`${routes.MOVIES}`}>Movies</NavigationLink>
+      </SiteNavItem>
+    </SiteNavList>
   );
 };
 

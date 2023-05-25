@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import MovieCard from 'components/MovieCard/MovieCard';
+import { MoviesListStyled } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   return (
     <>
-      <ul>
+      <MoviesListStyled>
         {movies &&
           movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
-      </ul>
+      </MoviesListStyled>
     </>
   );
 };

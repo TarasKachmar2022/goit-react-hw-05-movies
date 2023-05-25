@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
+import { CastCardImg, CastCardItem, CastCardTitle } from './CastCard.styled';
 
 const CastCard = ({ actor }) => {
   const { profile_path, name, character } = actor;
   //   const location = useLocation();
   // console.log(actor);
   return (
-    <li>
-      <img src={profile_path} alt={name} />
-      <h2>{name}</h2>
+    <CastCardItem>
+      <CastCardImg src={profile_path} alt={name} />
+      <CastCardTitle>{name}</CastCardTitle>
       <p>{character}</p>
-    </li>
+    </CastCardItem>
   );
 };
 

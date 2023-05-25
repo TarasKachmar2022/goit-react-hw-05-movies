@@ -1,6 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import routes from 'routes';
+import {
+  MovieCardItem,
+  NavigationLink,
+  MovieCardImage,
+  MovieCardContainer,
+  MovieCardTitle,
+  MovieCardContainerInfo,
+  MovieCardGenres,
+  MovieCardVote,
+} from './MovieCard.styled';
 
 const MovieCard = ({ movie }) => {
   const { id, title, genre_ids, poster_path, release_date, vote_average } =
@@ -8,16 +18,24 @@ const MovieCard = ({ movie }) => {
   const location = useLocation();
   console.log(movie);
   return (
-    <li>
-      {/* <Link to={`${routes.MOVIES}/${movie.id}`} state={{ from: location }}> */}
-      <Link to={routes.STATIC_MOVIE_ID(id)} state={{ from: location }}>
-        <img src={poster_path} alt={title} />
-        <h2>{title}</h2>
-        <p>
-          {genre_ids} {release_date} | {vote_average}
-        </p>
-      </Link>
-    </li>
+    <MovieCardContainer>
+      <MovieCardItem>
+        {/* <Link to={`${routes.MOVIES}/${movie.id}`} state={{ from: location }}> */}
+        <NavigationLink
+          to={routes.STATIC_MOVIE_ID(id)}
+          state={{ from: location }}
+        >
+          <MovieCardImage src={poster_path} alt={title} />
+          <MovieCardTitle>{title}</MovieCardTitle>
+          <MovieCardContainerInfo>
+            <MovieCardGenres>
+              {genre_ids} | {release_date}
+            </MovieCardGenres>
+            <MovieCardVote>{vote_average}</MovieCardVote>
+          </MovieCardContainerInfo>
+        </NavigationLink>
+      </MovieCardItem>
+    </MovieCardContainer>
   );
 };
 

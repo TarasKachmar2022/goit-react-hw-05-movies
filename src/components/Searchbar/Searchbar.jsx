@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import PropTypes from 'prop-types';
+import {
+  SearchbarBtn,
+  SearchbarInput,
+  SearchbarForm,
+} from './Searchbar.styled';
 
 const Searchbar = ({ onSubmit }) => {
   const [searchName, setSearchName] = useState('');
-
   const onInputChange = e => {
-    const value = e.target.value.trim().toLowerCase();
+    const value = e.target.value.toLowerCase();
     if (!value) return;
     setSearchName(value);
   };
@@ -26,19 +30,18 @@ const Searchbar = ({ onSubmit }) => {
   return (
     <header>
       <Toaster position="top-right" />
-      <form onSubmit={handleSubmit}>
-        <input
+      <SearchbarForm onSubmit={handleSubmit}>
+        <SearchbarInput
           type="text"
           value={searchName}
           onChange={onInputChange}
-          autoComplete="off"
           autoFocus
+          autoComplete="off"
           placeholder="Enter name of movie..."
-          required
         />
 
-        <button type="submit">Search</button>
-      </form>
+        <SearchbarBtn type="submit">Search</SearchbarBtn>
+      </SearchbarForm>
     </header>
   );
 };

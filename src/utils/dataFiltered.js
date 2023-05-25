@@ -15,7 +15,7 @@ const dataFilter = data => {
       id: result.id,
       poster_path: getPosterPath(result.poster_path),
       release_date: getReleaseYear(result.release_date),
-      title: result.title,
+      title: result.title.toUpperCase(),
       vote_average: getVoteAverageFormat(result.vote_average),
     };
   });

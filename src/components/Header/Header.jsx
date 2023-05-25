@@ -1,4 +1,4 @@
-import SiteNav from 'components/SiteNav/SiteNav';
+import SiteNav from 'components/SiteNav';
 
 const Header = () => {
   return (

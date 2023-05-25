@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
-import APIs from 'components/ApiService/ApiService';
-import Searchbar from 'components/Searchbar/Searchbar';
-import LoadMoreBtn from 'components/LoadMore/LoadMore';
-import MovieList from 'components/MoviesList/MoviesList';
+import Loader from 'components/Loader';
+import APIs from 'components/ApiService';
+import Searchbar from 'components/Searchbar';
+import LoadMoreBtn from 'components/LoadMore';
+import MovieList from 'components/MoviesList';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);

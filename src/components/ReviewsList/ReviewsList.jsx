@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ReviewsCard from 'components/ReviewCard/ReviewsCard';
+import ReviewsCard from 'components/ReviewCard';
 
 const ReviewsList = ({ reviews }) => {
   const review = reviews.results;

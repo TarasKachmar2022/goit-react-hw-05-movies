@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import APIs from 'components/ApiService/ApiService';
-import Loader from 'components/Loader/Loader';
-import CastList from 'components/CastList/CastList';
+import APIs from 'components/ApiService';
+import Loader from 'components/Loader';
+import CastList from 'components/CastList';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);

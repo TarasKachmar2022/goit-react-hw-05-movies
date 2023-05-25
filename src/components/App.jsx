@@ -1,14 +1,14 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './SharedLayout/SharedLayout';
+import SharedLayout from './SharedLayout';
 import routes from 'routes';
-import Loader from './Loader/Loader';
+import Loader from './Loader';
 
-const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const MoviesPage = lazy(() => import('pages/MoviesPage/MoviesPage'));
+const HomePage = lazy(() => import('pages/HomePage'));
+const MoviesPage = lazy(() => import('pages/MoviesPage'));
 const MoviesDetailsPage = lazy(() => import('pages/MoviesDetailsPage'));
-const Cast = lazy(() => import('./Cast/Cast'));
-const Reviews = lazy(() => import('./Reviews/Reviews'));
+const Cast = lazy(() => import('./Cast'));
+const Reviews = lazy(() => import('./Reviews'));
 
 export const App = () => {
   return (

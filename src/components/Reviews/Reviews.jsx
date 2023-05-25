@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import APIs from 'components/ApiService/ApiService';
-import Loader from 'components/Loader/Loader';
-import ReviewsList from 'components/ReviewsList/ReviewsList';
+import APIs from 'components/ApiService';
+import Loader from 'components/Loader';
+import ReviewsList from 'components/ReviewsList';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState({});

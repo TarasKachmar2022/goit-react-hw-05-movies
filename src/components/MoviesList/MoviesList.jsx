@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import MovieCard from 'components/MovieCard/MovieCard';
+import MovieCard from 'components/MovieCard';
 import { MoviesListStyled } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {

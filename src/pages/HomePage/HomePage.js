@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
-import APIs from 'components/ApiService/ApiService';
-import MoviesList from 'components/MoviesList/MoviesList';
+import Loader from 'components/Loader';
+import APIs from 'components/ApiService';
+import MoviesList from 'components/MoviesList';
 import { TrendingTitle } from './HomePage.styled';
 
 const HomePage = () => {

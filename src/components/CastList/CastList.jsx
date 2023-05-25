@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import CastCard from 'components/CastCard/CastCard';
+import CastCard from 'components/CastCard';
 import { CastUl } from './CastList.styled';
 
 const CastList = ({ actors }) => {

@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams, Outlet, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
-import APIs from 'components/ApiService/ApiService';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
-import AddInfo from 'components/AddInfo/AddInfo';
+import Loader from 'components/Loader';
+import APIs from 'components/ApiService';
+import MovieDetails from 'components/MovieDetails';
+import AddInfo from 'components/AddInfo';
 import routes from 'routes';
-import GoBackBtn from 'components/GoBackBtn/GoBackBtn';
+import GoBackBtn from 'components/GoBackBtn';
 
 const MoviesDetailsPage = () => {
   const [movie, setMovie] = useState();

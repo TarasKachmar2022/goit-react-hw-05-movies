@@ -1,9 +1,8 @@
 import developerPhoto from '../../images/developer/taras-kachmar.jpg';
 // import developerPhoto1x from '../../images/developer/taras-kachmar-1x.jpg';
 // import developerPhoto2x from '../../images/developer/taras-kachmar-2x.jpg';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import { TbBrandTelegram } from 'react-icons/tb';
 import {
   DeveloperContainer,
   DeveloperImg,
@@ -44,7 +43,7 @@ const DeveloperPage = () => {
             </DeveloperContactsItem>
             <DeveloperContactsItem>
               <DeveloperLink href="https://t.me/+380631753008">
-                <TbBrandTelegram color="black" fontSize={24} />
+                <FaTelegramPlane color="black" fontSize={24} />
               </DeveloperLink>
             </DeveloperContactsItem>
             <DeveloperContactsItem>

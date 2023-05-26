@@ -87,6 +87,10 @@ export const DeveloperContactsItem = styled.li`
 
 export const DeveloperLink = styled.a`
   padding: 20px;
+
+  &:hover svg {
+    fill: orange;
+  }
 `;
 
 export const DeveloperSkilsTitle = styled.h4`

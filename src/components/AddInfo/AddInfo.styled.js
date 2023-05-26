@@ -10,6 +10,7 @@ export const AddInfoList = styled.ul`
   display: flex;
   justify-content: center;
   list-style: none;
+  margin-bottom: 30px;
 `;
 
 export const AddInfoItem = styled.li`

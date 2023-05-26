@@ -7,6 +7,8 @@ import APIs from 'components/ApiService';
 import Searchbar from 'components/Searchbar';
 import LoadMoreBtn from 'components/LoadMore';
 import MovieList from 'components/MoviesList';
+import backgroundIMG from '../../images/2206372.jpg';
+import { Background } from './MoviesPage.styled';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -62,7 +64,18 @@ const MoviesPage = () => {
   return (
     <div>
       <Searchbar onSubmit={formHandlerSubmit} />
-      <MovieList movies={movies} />
+
+      {movies.length > 0 ? (
+        <>
+          <MovieList movies={movies} />
+        </>
+      ) : (
+        <>
+          <hr />
+          <Background src={backgroundIMG} alt="cinema" />
+        </>
+      )}
+
       {page < pageQuantity && <LoadMoreBtn addPage={onChangePageNumber} />}
       {loading && <Loader />}
       <Toaster position="top-right" />

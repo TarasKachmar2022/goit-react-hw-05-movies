@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -34,7 +35,7 @@ export const StyledBy = styled.p`
   margin: 8px 0 16px 5px;
 `;
 
-export const StudentBtn = styled.button`
+export const StudentBtn = styled(Link)`
   margin: 8px 5px 16px 5px;
   border: none;
   display: inline-block;

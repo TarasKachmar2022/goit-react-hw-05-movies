@@ -7,7 +7,7 @@ import APIs from 'components/ApiService';
 import Searchbar from 'components/Searchbar';
 import LoadMoreBtn from 'components/LoadMore';
 import MovieList from 'components/MoviesList';
-import backgroundIMG from '../../images/2206372.jpg';
+import backgroundIMG from '../../images/background-img.jpg';
 import { Background } from './MoviesPage.styled';
 
 const MoviesPage = () => {

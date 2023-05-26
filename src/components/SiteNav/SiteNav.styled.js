@@ -30,4 +30,8 @@ export const NavigationLink = styled(NavLink)`
     background-color: ${p => p.theme.colors.orange};
     color: white;
   }
+  &:hover {
+    background-color: ${p => p.theme.colors.orange};
+    color: white;
+  }
 `;

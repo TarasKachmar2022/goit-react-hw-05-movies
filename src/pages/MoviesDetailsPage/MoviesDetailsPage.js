@@ -59,6 +59,7 @@ const MoviesDetailsPage = () => {
       <hr />
       {movie && <MovieDetails movie={movie} />}
       {movie && <AddInfo />}
+      <hr />
       <Outlet />
       {loading && <Loader />}
       <Toaster position="top-right" />
